@@ -1,0 +1,37 @@
+  
+  <div class="blog-card">
+    <div class="blog-card-header">
+    <h2>{{blogs.title}}</h2>
+    </div>
+    <div class="card-body">
+      <p>
+        Subject:
+        {{blogs.subject}}
+      </p>
+      <p>
+        Note:
+        {{blogs.note}}
+      </p>
+      <p>
+        Date:
+        {{format_date blogs.created_date}}
+      </p>
+      <p>
+        By:
+        {{blogs.user.name}}
+            
+      </p>
+      <p>
+        Blog id:  <label id="blogid"> {{blogs.id}} </label>
+      </p>
+        
+             <div class="reviewcomment">
+              <label for="review-desc">Comment:</label></br>
+              <textarea class="input" style="width: 50%;" id="review-comment"></textarea></br>
+              <button id="reviewsubmit" type="submit" class="btn btn-primary">Submit</button>
+             </div>
+    </div>
+  </div>
+  
+ 
+ <script src="../../js/blogcomment.js"></script>

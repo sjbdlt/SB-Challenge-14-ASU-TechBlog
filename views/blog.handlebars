@@ -1,0 +1,57 @@
+<div class="col-6md">
+   {{#each blogs as |blog| }}
+  <div class="blog-card">
+    <div class="blog-card-header">
+    <h2>{{blog.title}}</h2>
+    </div>
+    <div class="card-body">
+      <p>
+        Subject:
+        {{blog.subject}}
+      </p>
+      <p>
+        Note:
+        {{blog.note}}
+      </p>
+      <p>
+        Date:
+        {{format_date blog.created_date}}
+      </p>
+      <p>
+        By:
+         {{blog.user.name}}
+            
+      </p>
+      <p>
+        Blog id:  <label id="blogid"> {{blog.id}} </label>
+      </p>
+          <div class="review">
+            {{#each blog.reviews as |review|}}
+              {{> review-details }}
+            {{/each}}
+
+            <div class="reviewcomment">
+              <a href="blog/{{blog.id}}">Comment</a>  
+            </div>
+          </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+  <div class="blog-card">
+    <h2>Create new Blog</h2>
+    <div class="card-body">
+        <label for="blogtitle">Title:</label></br>
+        <textarea class="input" style="width: 50%;" id="blogtitle"></textarea></br>
+
+        <label for="blogsubject">Subject:</label></br>
+        <textarea class="input" style="width: 50%;" id="blogsubject"></textarea></br>
+
+        <label for="blognote">Note:</label></br>
+        <textarea class="input" style="width: 50%;" id="blognote"></textarea></br>
+
+        <button id="blogsubmit" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+ <script src="../../js/blog.js"></script>

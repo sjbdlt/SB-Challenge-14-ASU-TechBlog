@@ -1,0 +1,15 @@
+header {
+    background-color: black;
+    color: red;
+}
+
+* {
+    margin: 5px;
+}
+
+body {
+    background-color: azure;
+    color: black;
+  
+}
+
