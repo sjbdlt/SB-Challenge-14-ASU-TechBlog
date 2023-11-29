@@ -22,6 +22,6 @@
     }
   };
 
-
+ 
 document.querySelector('#blogsubmit').addEventListener('click', enterblog);
 

@@ -3,34 +3,44 @@ const { Blog, Review, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET all blog
-router.get('/',  withAuth, async (req, res) => {
+router.get('/', withAuth,  async (req, res) => {
   try {
-    const dbblogData = await Blog.findAll({ 
+    const dbblogData = await Blog.findAll({
       include: [
         {
           model: User
         },
         {
-          model: Review
+          model: Review,
+          include: [
+            {
+              model: User
+            }
+          ]
         },
-      ], 
+      ],
+     
     });
     const blogs = dbblogData.map((blg) =>
       blg.get({ plain: true })
-    );  
+    );
     //res.json(blogs);  
     res.render('blog', {
-    blogs,
-    logged_in: true 
-   });
+      blogs,
+      logged_in: true
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
+router.get('/bcreate', withAuth, async (req, res) => {
+  res.render('blogcreate', { logged_in: true});
+});
+
 // GET one blog
-router.get('/:id',  withAuth, async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const dbblogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -44,8 +54,10 @@ router.get('/:id',  withAuth, async (req, res) => {
     });
     const blogs = dbblogData.get({ plain: true });
     //res.json(blogs); 
-    res.render('blogcomment', { blogs, 
-    logged_in: true  });
+    res.render('blogcomment', {
+      blogs,
+      logged_in: true
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -97,8 +109,24 @@ router.post('/review', withAuth, async (req, res) => {
   }
 });
 
-router.get('/bcreate', withAuth, async (req, res) => { 
-  res.render('blogcreate');
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!blogData) {
+      res.status(404).json({ message: 'No blog found with that id!' });
+      return;
+    }
+
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 module.exports = router;

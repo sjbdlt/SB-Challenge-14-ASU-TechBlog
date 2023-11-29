@@ -19,6 +19,7 @@
     <a href="/api/blog">Blog</a>
      {{#if logged_in}}
       <a href="/api/blog/bcreate">New Blog</a>   
+      <button class="logout" id="logout">logout</button>
      {{else}}
       <a href="/login">Login</a>   
       {{/if}}
@@ -29,9 +30,9 @@
     <div>
       {{{body}}}
     </div>
-    {{#if logged_in}}
+    {{!-- {{#if logged_in}}
     <button id="logout" class="btn-no-style">Logout</button>
-    {{/if}}
+    {{/if}} --}}
   </main>
    {{#if logged_in}}
   <script src="../../js/logout.js"></script>

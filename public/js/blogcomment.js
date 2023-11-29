@@ -20,5 +20,29 @@ const enterreview = async (event) => {
       }
     }
   };
+
+  const deleteblog = async (event) => {
+    event.preventDefault();
   
+    const blog_id = document.querySelector('#blogid').innerHTML;
+  
+    if (blogid) {
+      const response = await fetch(`/api/blog/${blog_id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/api/blog');
+      } else {
+        alert('Failed to add comment');
+      }
+    }
+  };
+  
+
+
+
 document.querySelector('#reviewsubmit').addEventListener('click', enterreview);
+
+document.querySelector('#deleteblog').addEventListener('click', deleteblog);

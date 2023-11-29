@@ -23,7 +23,7 @@
             
       </p>
       <p>
-        Blog id:  <label id="blogid"> {{blog.id}} </label>
+        Blog id:  <label id="blogid"> {{blog.id}} </label> 
       </p>
           <div class="review">
             {{#each blog.reviews as |review|}}
@@ -39,19 +39,3 @@
   {{/each}}
 </div>
 
-  <div class="blog-card">
-    <h2>Create new Blog</h2>
-    <div class="card-body">
-        <label for="blogtitle">Title:</label></br>
-        <textarea class="input" style="width: 50%;" id="blogtitle"></textarea></br>
-
-        <label for="blogsubject">Subject:</label></br>
-        <textarea class="input" style="width: 50%;" id="blogsubject"></textarea></br>
-
-        <label for="blognote">Note:</label></br>
-        <textarea class="input" style="width: 50%;" id="blognote"></textarea></br>
-
-        <button id="blogsubmit" type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </div>
- <script src="../../js/blog.js"></script>

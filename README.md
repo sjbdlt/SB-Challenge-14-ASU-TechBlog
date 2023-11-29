@@ -51,7 +51,7 @@ ISC license
 
 ## TEST:
 
-Verified the api calls and make sure inputs, updates and deletion from database occur correctly with Insomina
+Verified the api calls and make sure inputs, updates from database occur correctly
 
 ## QUESTIONS:
 

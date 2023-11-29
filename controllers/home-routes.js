@@ -7,7 +7,10 @@ router.get('/', async (req, res) => {
     const dbblogData = await Blog.findAll({ 
       include: [
         {
-          model: Review, User, 
+          model: Review, 
+        },
+        {
+          model: User, 
         },
       ], 
     });
@@ -36,7 +39,15 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {   
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 
 

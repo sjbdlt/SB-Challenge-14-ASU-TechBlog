@@ -28,7 +28,7 @@ const login = async (event) => {
     const password = document.querySelector('#sgnPassword').value.trim();
   
     if (username && email && password) {
-      const response = await fetch('/api/user', {
+      const response = await fetch('/api/user/', {
         method: 'POST',
         body: JSON.stringify({ username, email, password, currentDate }),
         headers: { 'Content-Type': 'application/json' },
