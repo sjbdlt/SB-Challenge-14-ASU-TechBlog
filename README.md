@@ -58,6 +58,6 @@ Verified the api calls and make sure inputs, updates from database occur correct
 ### User ID - SJBDLT
 ### User Email - sblake@blakeis.com
 
-Heroku - https://git.heroku.com/aqueous-escarpment-14867.git
+Heroku - https://aqueous-escarpment-14867-2705177539b4.herokuapp.com
 
 repo - https://github.com/sjbdlt/SB-Challenge-14-ASU-TechBlog.git
