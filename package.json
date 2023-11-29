@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "Dependencies": {
+  "dependencies": {
     "bcrypt": "^5.1.1",
     "connect-session-sequelize": "^7.1.7",
     "dotenv": "^16.3.1",
@@ -18,6 +18,5 @@
     "handlebars": "^4.7.8",
     "mysql2": "^3.6.5",
     "sequelize": "^6.35.1"
-  }
-  
+  } 
 }
